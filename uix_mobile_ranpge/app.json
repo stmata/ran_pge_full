@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "PGEProject",
+    "slug": "PGEProject",
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0778b25b-e6d1-4c79-8bc0-eb1ee3674d49"
+      }
+    },
+    "android": {
+      "package": "com.zakariaskema.PGEProject"
+    },
+    "ios": {
+      "bundleIdentifier": "com.zakariaskema.PGEProject"
+    }
+  }
+}

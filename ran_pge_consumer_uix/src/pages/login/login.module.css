@@ -1,0 +1,121 @@
+.splitContainer {
+  display: flex; /* Utilise Flexbox pour diviser l'écran en deux parties */
+  height: 100vh; /* Occupe toute la hauteur de l'écran */
+  grid-template-columns: 1fr; /* Une colonne par défaut */
+}
+
+.backgroundContainer {
+  flex: 1; /* La première partie occupe 1/2 de l'écran */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; /* Empêche le débordement de l'élément enfant avec le flou */
+  position: relative; /* Positionnement relatif pour l'élément flou */
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px); /* Applique le flou */
+}
+
+.formContainer {
+  flex: 1; /* La deuxième partie occupe 1/2 de l'écran */
+  display: flex;
+  flex-direction: column; /* S'assure que le contenu est empilé verticalement */
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  text-align: center; /* Centre le texte horizontalement */
+}
+
+.divPosition {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px; /* Limite la largeur maximale du formulaire */
+  margin: auto;
+  padding: 2em;
+  background-color: #f6f6f6;
+  backdrop-filter: blur(30px);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0.95;
+  position: relative;
+  border: none;
+}
+
+.logo_login {
+  max-width: 180px; 
+  margin-bottom: 1em;
+  align-self: first baseline;
+  padding-bottom: 30px;
+  padding: 25px;
+
+}
+
+.errorMessage {
+  color: red;
+  margin-bottom: 1em;
+}
+
+.emailInput {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px; /* Limite la largeur maximale de l'input */
+  font-weight: 400;
+  color: black;
+  background-color: #e9e9e9;
+  outline: none;
+  border: 0.5px solid #d3d3d3;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submitBtn {
+  width: 150px;
+  height: 40px;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submitBtn:hover {
+  background-color: #0056b3;
+}
+
+.terms > p {
+  font-size: 14px;
+  margin: 30px;
+  justify-content: center;
+  text-align: justify; /* Centre le texte dans le conteneur */
+}
+
+@media screen and (min-width: 768px) {
+  .splitContainer {
+    grid-template-columns: 1fr 1fr; /* Deux colonnes sur les écrans de taille moyenne et plus */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .backgroundContainer {
+    display: none; /* Masquer l'image de fond sur les petits écrans */
+  }
+}

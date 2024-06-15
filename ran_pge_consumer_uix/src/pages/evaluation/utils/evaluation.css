@@ -1,0 +1,228 @@
+/* Credit https://uiverse.io*/
+
+/*---------------------------------------
+              Loader     LottiFiles         
+-----------------------------------------*/
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.msg-instruction p{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/*---------------------------------------
+             Card Evaluation              
+-----------------------------------------*/
+
+.radio-input input {
+    display: none;
+}
+
+.box-container{
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.box-quizz{
+    max-height: calc(100vh - 200px);
+}
+
+.reference {
+    margin-top: 8px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.btn-quit{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-submit{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container-rate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background-image:linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    color: #000;
+    border-radius: 10px;
+    width: 90%;
+    margin: 10px 0;
+}
+
+hr {
+    width: 70%;
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin: 20px 0;
+}
+
+.info {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-rate {
+    color: rgb(49, 49, 49);
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 700;
+    font-size: 18px;
+    height: auto;
+
+}
+
+.steps-rate {
+    background-color: rgb(0, 0, 0);
+    padding: 4px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 600;
+}
+
+.radio-input label {
+    display: flex;
+    background-color: #fff;
+    padding: 14px;
+    margin: 8px 0 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(187, 187, 187, 0.164);
+    color: #000;
+    transition: .3s ease;
+    height: auto;
+}
+
+.radio-input label:hover {
+    background-color: #80d0c7;
+    border: 1px solid #f7f0f0;
+}
+input[disabled] + label {
+    pointer-events: none;
+}
+.score {
+    margin-bottom: 10px;
+}
+.score-legend{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.score p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.legend-wrong {
+    background-color: #ffbdbd;
+}
+
+.legend-right {
+    background-color: #80d0c7;
+    margin-left: 20px;
+}
+
+.legend-answer {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.result {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    display: none;
+    transition: display .4s ease;
+}
+
+.result.success {
+    color: green;
+}
+
+.result.error {
+    color: red;
+}
+
+.radio-input input:disabled + label {
+    cursor: not-allowed;
+    opacity: 0.;
+}
+
+
+
+/* Styles pour les options sélectionnées après la soumission du formulaire */
+.answer-option.correct.selected {
+    background-color: #80d0c7; /* Couleur de fond verte pour la réponse correcte sélectionnée */
+    color: #000;
+}
+
+.answer-option.incorrect.selected {
+    background-color: #ffbdbd; /* Couleur de fond rouge pour la réponse incorrecte sélectionnée */
+    color: #000;
+}
+
+.radio-input input:checked + label {
+    background-color: #80d0c7; /* Couleur de fond gris foncé */
+    border-color: #fff;
+    color: #000;
+}
+
+.answer-option.selected {
+    background-color: grey; /* Couleur de fond gris foncé */
+    border-color: #fff;
+    color: #000;
+}
+
+.answer-option.correct {
+    background-color:#80d0c7 ;/* Couleur de fond verte */
+    color: #000;
+}
+
+.answer-option.incorrect {
+    background-color: #ffbdbd; /* Couleur de fond rouge */
+    color: #000;
+}
+
+.answer-option.correct-unselected {
+    background-color:#80d0c7; /* Couleur de fond verte pour l'option correcte non sélectionnée */
+    color: #000;
+}

@@ -1,0 +1,63 @@
+{
+  "name": "ranpge",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@auth-kit/react-router": "^3.1.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.17",
+    "@mui/material": "^5.15.17",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^4.4.2",
+    "crypto-js": "^4.2.0",
+    "jsdoc": "^4.0.2",
+    "jspdf": "^2.5.1",
+    "marked": "^12.0.2",
+    "mdb-react-ui-kit": "^8.0.0",
+    "react": "^18.2.0",
+    "react-auth-kit": "^3.1.2",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-lottie": "^1.2.4",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
+    "react-spring": "^9.7.3",
+    "styled-components": "^6.1.8",
+    "sweetalert2": "^11.10.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && cp web.config build/",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "jsdoc": "jsdoc -c jsdoc.json"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "babel-jest": "^29.7.0"
+  }
+}

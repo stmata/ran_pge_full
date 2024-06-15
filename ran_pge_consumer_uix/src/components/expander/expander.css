@@ -1,0 +1,43 @@
+.expander {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%; 
+    margin: 0 auto; 
+}
+
+.expander-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.expander-title {
+    font-weight: bold;
+}
+
+.expander-icon {
+    font-size: 18px;
+}
+
+.expander-icon.expanded {
+    transform: rotate(45deg);
+}
+
+.expander-content {
+    padding: 10px;
+    max-height: 400px; /* Hauteur maximale du contenu */
+    overflow-y: auto; /* Ajouter une barre de défilement si nécessaire */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .expander {
+        width: 100%; /* Sur les écrans de taille moyenne et plus petits, utiliser toute la largeur disponible */
+        border-radius: 0; /* Pas de bordure arrondie sur les bords inférieurs */
+    }
+}

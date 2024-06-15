@@ -1,0 +1,284 @@
+/* https://devdevout.com/css/css-cards credit for cards */
+/* Card Topics */
+  .sk-card {
+    max-width: 370px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: -3px 3px #A2CCCE, 
+                -3px 3px #A2CCCE,
+                3px -3px   rgba(0, 0, 0, 0.3), 
+                3px -3px  rgba(0, 0, 0, 0.3);
+    background: #fff; 
+    transition: transform 0.2s;
+  }
+  
+  .sk-card:hover {
+    transform: scale(1.05);
+    box-shadow: -3px 3px #F7F410, 
+                -3px 3px #F7F410,
+                3px -3px   rgba(0, 0, 0, 0.3), 
+                3px -3px  rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  .sk-card-image {
+    width: calc(100% - 32px); 
+    height: 200px; 
+    object-fit: cover;
+    margin: 8px 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 4px; 
+  }
+  
+  .sk-card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px; 
+    overflow-y: auto;
+  }
+  
+  .sk-card-title {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+  }
+  
+  .sk-card-rating {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  
+  .sk-card-description {
+    font-size: 14px;
+    color: #666;
+    overflow-y: auto;
+  }
+  
+  .sk-card-buttons {
+    display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  }
+ 
+  .sk-card-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; 
+    margin: 0 4px; 
+    width: auto; 
+  }
+  
+  .sk-card-button:hover {
+    background-color: #444;
+  }
+  
+  /* CARD Cours */
+
+  .sk-custom-card {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    max-width: 18rem;
+    height: 28.125rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+  }
+  
+  .sk-custom-card > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  
+  .sk-custom-card__background {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+  }
+  
+  .sk-custom-card__content {
+    --flow-space: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 12% 1.25rem 1.875rem;
+    background: linear-gradient(
+      180deg,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.3) 10%,
+      hsl(0, 0%, 0%) 100%
+    );
+  }
+  
+  .sk-custom-card__content--container {
+    --flow-space: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .sk-custom-card__title {
+    color: white !important;
+    position: relative;
+    width: auto; /* Changement de fit-content à auto */
+    max-width: 100%; /* Assure que le titre ne déborde pas */
+    width: -webkit-fit-content; /* Ajout du préfixe pour Safari */
+    width: -moz-fit-content;
+  }
+  
+  .sk-custom-card__rating {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: auto; /* Add this to push the rating down */
+  }
+  
+  .sk-custom-card__description {
+    padding: 10px;
+    color: white !important;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1; /* This will make the description take up the available space */
+  }
+  
+  .sk-custom-card__title::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 150px;
+    bottom: calc((1.25rem - 0.5rem) * -1);
+    left: -1.25rem;
+    background-color: #026973; /* Replaced with the actual color value */
+  }
+  
+  .sk-custom-card__button {
+    padding: 0.75em 1.6em;
+    width: fit-content; /* Assure que le bouton prend la largeur du contenu */
+    font-variant: small-caps;
+    font-weight: bold;
+    border-radius: 0.45em;
+    border: none;
+    background-color: #026973;
+    font-size: 1.125rem;
+    color: white;
+    opacity: 1; /* Assure que le bouton est visible par défaut */
+    margin-top: 145px; /*ajouté temporairement*/
+  }
+  
+  .sk-custom-card__button:focus {
+    outline: 2px solid black;
+    outline-offset: -5px;
+  }
+  
+  .sk-custom-card__button:hover {
+    opacity: 1; /* Assure que le bouton reste visible au survol */
+  }
+  
+  .sk-custom-card:hover .sk-custom-card__button,
+  .sk-custom-card:focus-within .sk-custom-card__button {
+    opacity: 1; /* Assure que le bouton devient visible lors du survol ou du focus */
+    transition: opacity 500ms ease-in;
+    transition-delay: 1000ms;
+  }
+  
+  .sk-custom-card__double {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+  }
+  
+  .sk-custom-card__button_double {
+    padding: 0.75em 1.6em;
+    width: fit-content;
+    font-variant: small-caps;
+    font-weight: bold;
+    border-radius: 0.45em;
+    border: none;
+    background-color: #026973;
+    font-size: 1.125rem;
+    color: white;
+    margin: 0 0.5em;
+  }
+  
+  .sk-custom-card__button_double:focus {
+    outline: 2px solid black;
+    outline-offset: -5px;
+  }
+  
+  @media (any-hover: hover) and (any-pointer: fine) {
+    .sk-custom-card__content {
+      transform: translateY(62%);
+      transition: transform 500ms ease-out;
+      transition-delay: 500ms;
+    }
+  
+    .sk-custom-card__title::after {
+      opacity: 0;
+      transform: scaleX(0);
+      transition: opacity 1000ms ease-in, transform 500ms ease-out;
+      transition-delay: 500ms;
+      transform-origin: right;
+    }
+  
+    .sk-custom-card__background {
+      transition: transform 500ms ease-in;
+    }
+  
+    .sk-custom-card__content--container > :not(.sk-custom-card__title),
+    .sk-custom-card__button {
+      opacity: 0;
+      transition: transform 500ms ease-out, opacity 500ms ease-out;
+    }
+  
+    .sk-custom-card:hover,
+    .sk-custom-card:focus-within {
+      transform: scale(1.05);
+      transition: transform 500ms ease-in;
+    }
+  
+    .sk-custom-card:hover .sk-custom-card__content,
+    .sk-custom-card:focus-within .sk-custom-card__content {
+      transform: translateY(0);
+      transition: transform 500ms ease-in;
+    }
+  
+    .sk-custom-card:focus-within .sk-custom-card__content {
+      transition-duration: 0ms;
+    }
+  
+    .sk-custom-card:hover .sk-custom-card__background,
+    .sk-custom-card:focus-within .sk-custom-card__background {
+      transform: scale(1.3);
+    }
+  
+    .sk-custom-card:hover .sk-custom-card__content--container > :not(.sk-custom-card__title),
+    .sk-custom-card:hover .sk-custom-card__button,
+    .sk-custom-card:focus-within .sk-custom-card__content--container > :not(.sk-custom-card__title),
+    .sk-custom-card:focus-within .sk-custom-card__button {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+      transition-delay: 1000ms;
+    }
+  
+    .sk-custom-card:hover .sk-custom-card__title::after,
+    .sk-custom-card:focus-within .sk-custom-card__title::after {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: opacity 500ms ease-in, transform 500ms ease-in;
+      transition-delay: 500ms;
+    }
+  }
+  

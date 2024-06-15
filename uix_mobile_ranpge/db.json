@@ -1,0 +1,307 @@
+{
+  "users": [
+    {
+      "id": "65d370ace9f820c122ad1448",
+      "email": "zakaria.bouachra@skema.edu",
+      "verification_code": "",
+      "user": "Zakaria Bouachra",
+      "conversations": [
+        {
+          "id": "6add3904-c761-4e62-b65c-efd7183fa1da",
+          "title": "Chat: 6add3904-c761-4...",
+          "createdAt": "2024-02-15T20:19:03.980Z",
+          "messages": [
+            {
+              "id": "2d40b965-128d-41b1-83f6-aad1ac950bb5",
+              "text": "Hello",
+              "user": 0,
+              "time": "3:19 PM"
+            },
+            {
+              "id": "03a7c0ae-bf15-4e7e-90c0-6cd3ac1a8866",
+              "text": "Hello! How can I assist you today?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "3:19 PM"
+            },
+            {
+              "id": "71cff5f9-a2fb-4af5-8b4c-6b9dccb147df",
+              "text": "Tell me about your content ?Some summary please !",
+              "user": 0,
+              "time": "3:23 PM"
+            },
+            {
+              "id": "2f5f99f9-ea22-4e7b-b9d6-9bd65afe9d71",
+              "text": "The content I provided is about data science and related terms such as predictive analytics, machine learning, and advanced analytics. It explains the field of data science as the extraction of knowledge and insights from data to drive actions for businesses or organizations. It also discusses the intersection of computer science, mathematics, and business expertise in data science initiatives. The content further explores different types of data science, such as descriptive analytics, diagnostic analytics, predictive analytics, and prescriptive analytics. It outlines the data science life cycle, including business understanding, data mining, data cleaning, and exploration. It also mentions the roles of business analysts, data engineers, and data scientists in the data science process.",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "3:23 PM"
+            },
+            {
+              "id": "8d9f326d-5b92-4029-830f-66e9e0d89f13",
+              "text": "The provided content is about data science and its related terms, including predictive analytics, machine learning, and advanced analytics. Data science is defined as the study of extracting knowledge and insights from data to drive actions for businesses or organizations. It involves the intersection of computer science, mathematics, and business expertise. The content also explores different types of data science, such as descriptive analytics, diagnostic analytics, predictive analytics, and prescriptive analytics. It explains the data science life cycle, which includes business understanding, data mining, data cleaning, and exploration. Additionally, it mentions the roles of business analysts, data engineers, and data scientists in the data science process.",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "3:27 PM"
+            }
+          ]
+        },
+        {
+          "id": "fbbd5635-c49d-4f12-ae47-9c170e51e2ee",
+          "title": "Chat: fbbd5635-c49d-4...",
+          "createdAt": "2024-02-15T21:00:18.116Z",
+          "messages": [
+            {
+              "id": "2a0d1f2e-426a-4952-80ce-ec5157a898f9",
+              "text": "Hello",
+              "user": 0,
+              "time": "4:00 PM"
+            },
+            {
+              "id": "492aeabb-6f31-4e44-8644-c4fb452ea739",
+              "text": "Hi there! How can I assist you today?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:00 PM"
+            }
+          ]
+        },
+        {
+          "id": "5c0cfc37-ce50-4407-bf7d-17122e02f1b3",
+          "title": "Chat: 5c0cfc37-ce50-4...",
+          "createdAt": "2024-02-15T21:05:26.982Z",
+          "messages": [
+            {
+              "id": "94b1fe80-1f56-4c9c-b8ee-0323f6a6f6c1",
+              "text": "Tell me about your content ?",
+              "user": 0,
+              "time": "4:05 PM"
+            },
+            {
+              "id": "c21d38ba-55d6-4db2-a920-608f5471ce92",
+              "text": "I apologize, but I don't have any information about the specific content you are referring to. Can you please provide more context or clarify your question?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:05 PM"
+            },
+            {
+              "id": "2592265f-1405-4abb-8162-01d373a7dd99",
+              "text": "Datascience",
+              "user": 0,
+              "time": "4:08 PM"
+            },
+            {
+              "id": "48d48f60-3990-4e06-88bc-7df1aec8bb12",
+              "text": "Data science is the field of study that involves extracting knowledge and insights from noisy data and then turning those insights into actions that a business or organization can take. It is the intersection of computer science, mathematics, and business expertise. There are different types of data science, such as descriptive analytics, predictive analytics, and prescriptive analytics, depending on the complexity and value of the questions being asked. In the data science life cycle, it starts with business understanding, followed by data mining, data cleaning, exploration, and potentially advanced analytics using machine learning tools. Collaboration between business analysts, data engineers, and data scientists is crucial in the data science process. The ultimate goal is to turn noisy data into meaningful action for the business.",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:08 PM"
+            }
+          ]
+        },
+        {
+          "id": "1adb2b21-8d38-4453-87a8-af44bb9be867",
+          "title": "Chat: 1adb2b21-8d38-4...",
+          "createdAt": "2024-02-16T19:32:22.499Z",
+          "messages": [
+            {
+              "id": "eecd71f2-cd74-4460-a061-153bac299dc9",
+              "text": "Bonjour",
+              "user": 0,
+              "time": "2:32 PM"
+            },
+            {
+              "id": "ccf30516-06ea-44c8-8ba4-2f2950282b28",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "2:32 PM"
+            }
+          ]
+        },
+        {
+          "id": "10b82118-3cba-4181-b9c7-0705c86350b6",
+          "title": "Chat: 10b82118-3cba-4...",
+          "createdAt": "2024-02-16T19:34:31.885Z",
+          "messages": [
+            {
+              "id": "4df85a7d-9c0b-4636-9421-e39cb5964698",
+              "text": "Hello",
+              "user": 0,
+              "time": "2:34 PM"
+            },
+            {
+              "id": "54cc83c6-5406-4cb2-bace-9a1eb63ba5d2",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "2:34 PM"
+            }
+          ]
+        },
+        {
+          "id": "c2b5ea10-acd7-4c1d-bf21-5aa41bb32bbb",
+          "title": "Chat: c2b5ea10-acd7-4...",
+          "createdAt": "2024-02-16T19:35:49.970Z",
+          "messages": [
+            {
+              "id": "20dc3eeb-b894-4253-ab80-68d71cd91d4c",
+              "text": "Hello",
+              "user": 0,
+              "time": "2:35 PM"
+            },
+            {
+              "id": "c414f6fb-469c-46a1-a245-2da16f055fc1",
+              "text": "Hello! How can I assist you today?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "2:35 PM"
+            }
+          ]
+        },
+        {
+          "id": "a09d00b1-5d76-4fc2-968c-d37ea2e8527d",
+          "title": "Chat: a09d00b1-5d76-4...",
+          "createdAt": "2024-02-16T20:08:35.802Z",
+          "messages": [
+            {
+              "id": "7d16f088-a722-4ddc-beb0-90026ee4a877",
+              "text": "Hello",
+              "user": 0,
+              "time": "3:08 PM"
+            },
+            {
+              "id": "15d6f136-176e-4654-8cb4-47dc65341238",
+              "text": "Hello! How can I assist you today?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "3:08 PM"
+            }
+          ]
+        },
+        {
+          "id": "99d31407-381c-40cd-8398-9bb3aaad6d06",
+          "title": "Chat: 99d31407-381c-4...",
+          "createdAt": "2024-02-16T21:28:31.828Z",
+          "messages": [
+            {
+              "id": "9a1dcafb-9cce-45a4-a22f-39a4e7652dbc",
+              "text": {
+                "type": "audio",
+                "content": "file:///var/mobile/Containers/Data/Application/06FE6C83-6977-4547-86A8-072EE515AD06/Library/Caches/ExponentExperienceData/@anonymous/PGEProject-3a1d74a7-0287-4a03-bed3-565bb39a2e3d/AV/recording-0F98240A-612D-4190-8A71-38602290758F.m4a"
+              },
+              "user": 0,
+              "time": "4:28 PM"
+            },
+            {
+              "id": "7196059a-cbe2-40e2-a9df-652db7d8e396",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:28 PM"
+            }
+          ]
+        },
+        {
+          "id": "134a6b60-f4e2-4116-81fe-1ab426ff2805",
+          "title": "Chat: 134a6b60-f4e2-4...",
+          "createdAt": "2024-02-16T21:30:39.813Z",
+          "messages": [
+            {
+              "id": "cef163a7-823c-4303-99c4-d6540b92e365",
+              "text": {
+                "type": "audio",
+                "content": "file:///var/mobile/Containers/Data/Application/06FE6C83-6977-4547-86A8-072EE515AD06/Library/Caches/ExponentExperienceData/@anonymous/PGEProject-3a1d74a7-0287-4a03-bed3-565bb39a2e3d/AV/recording-21A0857C-0C6B-4622-81DB-45F9CB8C407F.m4a"
+              },
+              "user": 0,
+              "time": "4:30 PM"
+            },
+            {
+              "id": "8caef978-67fc-4949-ae13-eed9e559d8a7",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:30 PM"
+            }
+          ]
+        },
+        {
+          "id": "08a0e09f-bd80-45fb-888e-f8b2109c3b00",
+          "title": "Chat: 08a0e09f-bd80-4...",
+          "createdAt": "2024-02-16T21:31:09.020Z",
+          "messages": [
+            {
+              "id": "6e9c8601-f55f-4534-8eb8-bd5f9938166d",
+              "text": "Hello",
+              "user": 0,
+              "time": "4:31 PM"
+            },
+            {
+              "id": "4388f205-40cd-4428-9b07-0ef9d976f54e",
+              "text": "Hello! How can I assist you today?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:31 PM"
+            }
+          ]
+        },
+        {
+          "id": "6c412973-d407-40e5-98e7-4fe527384e0c",
+          "title": "Chat: 6c412973-d407-4...",
+          "createdAt": "2024-02-16T21:54:22.317Z",
+          "messages": [
+            {
+              "id": "084d5214-25c8-42d3-b869-c97960da5836",
+              "text": "Hello",
+              "user": 0,
+              "time": "4:54 PM"
+            },
+            {
+              "id": "1a368146-1914-47fb-8d41-bf4edf75dd43",
+              "text": "Hello! How can I assist you today?",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "4:54 PM"
+            }
+          ]
+        },
+        {
+          "id": "8c30e338-fddf-4723-b2b6-a562626b82f8",
+          "title": "Chat: 8c30e338-fddf-4...",
+          "createdAt": "2024-02-19T18:12:02.372Z",
+          "messages": [
+            {
+              "id": "2c227e3c-b355-436d-ae10-3fc653ced9b1",
+              "text": "Hello",
+              "user": 0,
+              "time": "1:12 PM"
+            },
+            {
+              "id": "94c7c577-836d-4806-92ae-a934f4dcaadd",
+              "user": 1,
+              "response": true,
+              "nouveau": false,
+              "time": "1:12 PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5852",
+      "email": "zakaria.bouachra@skema.edu",
+      "verification_code": "285653",
+      "user": "Zakaria Bouachra"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+/* Footer.css */
+.sk-footer {
+    /*background-color: #f1ece1;*/
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .sk-footer-top {
+    margin-bottom: 20px;
+  }
+
+  .sk-footer-section h1 {
+    font-family: "Raleway-Bold" !important;
+    font-weight: bold;
+    color: #e5524e;
+    font-size: 17px;
+  }
+  
+  .sk-footer-middle {
+    margin: 20px 0;
+  }
+  
+  .sk-footer-bottom {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  
+  .sk-footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .sk-footer-links a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .sk-footer-logos {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 18px;  
+  }
+  
+  .sk-footer-logos img {
+    flex: 0 1 auto; /* Les logos peuvent rétrécir mais ne pas grandir */
+    max-height: 50px; /* Hauteur maximale pour les logos */
+    margin: 5px; /* Ajoute un petit espace autour des logos */
+  }
+  
+  .btn-subscription {
+    margin-top: 15px!important;
+    margin-bottom: 20px!important;
+    text-transform: uppercase;
+    background-color: transparent;
+    text-align: center;
+    font-family: Raleway-Bold;
+    font-size: 15px;
+    border: solid 2px #000;
+    display: block;
+    margin: auto;
+    padding: 5px 8px;
+    line-height: 32px;
+  }
+  
+  .btn-subscription:hover {
+    background-color: #252525;
+    color: white !important;
+    cursor: pointer;
+  }
+  @media (min-width: 768px) {
+    .footer-logos img {
+      max-height: 70px; 
+    }
+  }
+  

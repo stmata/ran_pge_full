@@ -1,0 +1,36 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* fond semi-transparent */
+    display: flex;
+    justify-content: center !important; 
+    align-items: center !important;
+  }
+  
+  .modal-content {
+    background-color: white !important;
+    padding: 10px; /* Réduire l'espace intérieur */
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999; 
+    max-width: 300px; 
+  }
+  
+  .modal-close-button {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    outline: none; 
+  }
+  
+  .modal-close-button:hover {
+    background-color: #0056b3; /* Couleur du fond du bouton au survol */
+  }
+  
