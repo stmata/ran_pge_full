@@ -139,7 +139,36 @@ class VectorStoreManager:
         container_client = self.blob_service_client.get_container_client(self.container_name)
         return any(blob.name == blob_name for blob in container_client.list_blobs(name_starts_with=blob_name))
 
-    
+    def get_files_in_partial_folder(self, level, module):
+        """
+        Retrieves the list of file names from a specific partial folder in Azure Blob Storage.
+
+        Args:
+            level (str): The level of the partial folder (e.g.'M1', 'L3').
+            module (str): The module name within the specified level.
+
+        Returns:
+            list: A list containing the names of files found in the specified partial folder.
+        """
+        partial_folder = f'Partial/{level}/{module}/'
+        files_list = self.list_files_in_blob_directory(partial_folder)
+        return files_list
+
+    def list_files_in_blob_directory(self, directory_path):
+        """
+        Lists all files in the specified directory path within an Azure Blob Storage container.
+
+        Args:
+            directory_path (str): The path of the directory within the container to list files from.
+
+        Returns:
+            list: A list of file names (blobs) found in the specified directory path.
+        """
+        container_client = self.blob_service_client.get_container_client(self.container_name)
+        files_list = []
+        for blob in container_client.list_blobs(name_starts_with=directory_path):
+            files_list.append(blob.name)
+        return files_list
 
     # def vector_store_path(self, user_id):
     #     return os.path.join(self.VECTOR_STORE_DIR, f"{user_id}_vector_store.bin")
