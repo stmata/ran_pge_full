@@ -123,27 +123,75 @@ def get_user_evaluations(userId):
 # new route added by cheikh
 @evalution_route.route("/evalutionwithprompt", methods=['POST'])
 async def evalutionwithprompt():
+    """
+    Handles the POST request to fetch evaluation data based on provided parameters.
+
+    Expects JSON payload with keys:
+        - 'level': The level identifier.
+        - 'module': The module identifier.
+        - 'topicsName': The topic name.
+        - 'nbrinnerList': The inner list number.
+
+    Returns:
+        JSON: A JSON response containing evaluation data or an error message.
+    """
     try:
         data = request.json
         level = data.get('level')
         module = data.get('module')
         topicsName = data.get('topicsName')
         nbrinnerList = data.get('nbrinnerList')
+        if not topicsName or topicsName in ["Evaluation Globale", "Global Evaluation"] or nbrinnerList == 24:
+            files_list = vector_services.get_files_in_partial_folder(level, module)
+            listEvaluation = []
 
-        if not topicsName or (topicsName == "Evaluation Globale" or topicsName == "Global Evaluation"):
-            blob_name = f'General/{level}/{module}'
+            for blob_name in files_list:
+                print(blob_name)
+                current_vector_store = vector_services.get_vector_store(blob_name)
+                if current_vector_store:
+                    evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store, level, 4)
+                    listEvaluation.extend(evalution_services.string_to_list(evaluation))
+
+            return jsonify(listEvaluation), 200
+        
         else:
             blob_name = f'Partial/{level}/{module}/{topicsName}'
-        print(blob_name)
-        current_vector_store = vector_services.get_vector_store(blob_name)
-        if current_vector_store:
-            evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store, level, nbrinnerList)
-            listEvaluation = evalution_services.string_to_list(evaluation)
-            return jsonify(listEvaluation), 200
-        return jsonify({'message': 'Store processed and sent successfully'}), 200
+            print(blob_name)
+            current_vector_store = vector_services.get_vector_store(blob_name)
+            if current_vector_store:
+                evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store, level, nbrinnerList)
+                listEvaluation = evalution_services.string_to_list(evaluation)
+                return jsonify(listEvaluation), 200
+            
+            return jsonify({'message': 'Store processed and sent successfully'}), 200
+    
     except Exception as e:
-        error_message = f"Une erreur générale est survenue : {e}"
+        error_message = f"An error occurred: {str(e)}"
         return jsonify({'error': error_message}), 500
+
+# @evalution_route.route("/evalutionwithprompt", methods=['POST'])
+# async def evalutionwithprompt():
+#     try:
+#         data = request.json
+#         level = data.get('level')
+#         module = data.get('module')
+#         topicsName = data.get('topicsName')
+#         nbrinnerList = data.get('nbrinnerList')
+
+#         if not topicsName or (topicsName == "Evaluation Globale" or topicsName == "Global Evaluation"):
+#             blob_name = f'General/{level}/{module}'
+#         else:
+#             blob_name = f'Partial/{level}/{module}/{topicsName}'
+#         print(blob_name)
+#         current_vector_store = vector_services.get_vector_store(blob_name)
+#         if current_vector_store:
+#             evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store, level, nbrinnerList)
+#             listEvaluation = evalution_services.string_to_list(evaluation)
+#             return jsonify(listEvaluation), 200
+#         return jsonify({'message': 'Store processed and sent successfully'}), 200
+#     except Exception as e:
+#         error_message = f"Une erreur générale est survenue : {e}"
+        # return jsonify({'error': error_message}), 500
 
 
 async def get_plan_for_module(level, cours, full_module_name, module_questions):
