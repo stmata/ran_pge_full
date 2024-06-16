@@ -51,8 +51,18 @@ async def evalution(request: Request):
         error_message = f"Une erreur générale est survenue : {e}"
         return JSONResponse(content={'error': error_message}, status_code=500)
 
-@evalution_router.post("/evalutionwithprompt/", response_model=List[Dict])
+@evalution_router.post("/evalutionwithprompt", response_model=List[Dict])
 async def evalutionwithprompt(request: Request):
+    """
+    Handles the POST request to fetch evaluation data based on provided parameters.
+
+    Args:
+        request (Request): The incoming HTTP request object containing JSON data with keys:
+                           'level', 'module', 'topicsName', 'nbrinnerList'.
+
+    Returns:
+        JSONResponse: A JSON response containing evaluation data or an error message.
+    """
     try:
         data = await request.json()
         level = data.get('level')
@@ -60,20 +70,71 @@ async def evalutionwithprompt(request: Request):
         topicsName = data.get('topicsName')
         nbrinnerList = data.get('nbrinnerList')
 
-        if not topicsName or (topicsName == "Evaluation Globale" or topicsName == "Global Evaluation"):
-            blob_name = f'General/{level}/{module}'
+        if not topicsName or topicsName in ["Evaluation Globale", "Global Evaluation"] or nbrinnerList == 24:
+            files_list = vector_services.get_files_in_partial_folder(level, module)
+            print(files_list)
+            listEvaluation = []
+
+            for blob_name in files_list:
+                print(blob_name)
+                current_vector_store = vector_services.get_vector_store(blob_name)
+                if current_vector_store:
+                    evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store, level, 4)
+                    listEvaluation.extend(evalution_services.string_to_list(evaluation))
+        
+            return JSONResponse(content=listEvaluation, status_code=200)
+        
         else:
             blob_name = f'Partial/{level}/{module}/{topicsName}'
-        print(blob_name)
-        current_vector_store = vector_services.get_vector_store(blob_name)
-        if current_vector_store:
-            evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store,level,nbrinnerList)
-            listEvaluation = evalution_services.string_to_list(evaluation)
-            return JSONResponse(content=listEvaluation, status_code=200)
-        return JSONResponse(content={'message': 'Store processed and sent successfully'}, status_code=200)
+            print(blob_name)
+            
+            current_vector_store = vector_services.get_vector_store(blob_name)
+            if current_vector_store:
+                evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store, level, nbrinnerList)
+                listEvaluation = evalution_services.string_to_list(evaluation)
+                return JSONResponse(content=listEvaluation, status_code=200)
+            
+            return JSONResponse(content={'message': 'Store processed and sent successfully'}, status_code=200)
+    
     except Exception as e:
         error_message = f"Une erreur générale est survenue : {e}"
         return JSONResponse(content={'error': error_message}, status_code=500)
+
+
+
+# @evalution_router.post("/evalutionwithprompt", response_model=List[Dict])
+# async def evalutionwithprompt(request: Request):
+    # """
+    # Handles the POST request to fetch evaluation data based on provided parameters.
+
+    # Args:
+    #     request (Request): The incoming HTTP request object containing JSON data with keys:
+    #                        'level', 'module', 'topicsName', 'nbrinnerList'.
+
+    # Returns:
+    #     JSONResponse: A JSON response containing evaluation data or an error message.
+    # """
+#     try:
+#         data = await request.json()
+#         level = data.get('level')
+#         module = data.get('module')
+#         topicsName = data.get('topicsName')
+#         nbrinnerList = data.get('nbrinnerList')
+
+#         if not topicsName or (topicsName == "Evaluation Globale" or topicsName == "Global Evaluation"):
+#             blob_name = f'General/{level}/{module}'
+#         else:
+#             blob_name = f'Partial/{level}/{module}/{topicsName}'
+#         print(blob_name)
+#         current_vector_store = vector_services.get_vector_store(blob_name)
+#         if current_vector_store:
+#             evaluation = await evalution_services.get_quiz_data_for_client_web(current_vector_store,level,nbrinnerList)
+#             listEvaluation = evalution_services.string_to_list(evaluation)
+#             return JSONResponse(content=listEvaluation, status_code=200)
+#         return JSONResponse(content={'message': 'Store processed and sent successfully'}, status_code=200)
+#     except Exception as e:
+#         error_message = f"Une erreur générale est survenue : {e}"
+#         return JSONResponse(content={'error': error_message}, status_code=500)
 
 @evalution_router.post("/users/{userId}/evaluation", response_model=Dict)
 async def save_evaluation(userId: str, request: Request):
