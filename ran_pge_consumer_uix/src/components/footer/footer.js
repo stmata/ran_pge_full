@@ -23,31 +23,30 @@ const Footer = () => {
    * Handles the subscription button click event and redirects the user to the subscription page.
    */
   const handleSubscription = () => {
-    window.location.assign('https://www.skema-bs.fr/skema/s-abonner-a-nos-newsletters');
+    window.location.assign('https://www.synthese.ai');
   }
   return (
     <footer className="sk-footer">
       <div className="sk-footer-content">
         <div className="sk-footer-section">
-          <h1>SKEMA Business School</h1>
-          <p>Global BBA, ESDHEM, Programme Grande Ecole, Mastère Spécialisé®, Masters of Science, Formation Continue, Executive MBA, Doctorat, Ph.D/DBA...</p>
+          <h1>SynthèseIA Inc.</h1>
+          <p>Data Engineering, Business Intelligence, LLMs and RAG, Computer Vision, Machine Learning...</p>
         </div>
         <div className="sk-footer-section">
           <button onClick={handleSubscription} className='btn-subscription'>ABONNEZ-VOUS À NOS NEWSLETTERS</button>
         </div>
         <div className="sk-footer-section links-logos">
             <div className="sk-footer-links">
-                <a href="https://www.skema.edu/sitemaps">Site map |</a>
-                <a href="https://global-experience.skema.edu">SKEMA Global Experience |</a>
-                <a href="https://www.skema.edu/legal-informations">Legal informations |</a>
-                <a href="https://www.skema.edu/skema/purchase-contact">Purchasing SKEMA |</a>
-                <a href="https://publications.skema.edu/books/hotx/#p=1">Sustainable procurement charter |</a>
-                <a href="https://www.skema.edu/skema/access-and-contacts">Contacts and access |</a>
+                <a href="https://www.synthese.ai/">Site map |</a>
+                <a href="">Legal informations |</a>
+                <a href="">Purchasing E-Kelasi |</a>
+                <a href="">Sustainable procurement charter |</a>
+                <a href="">Contacts and access |</a>
                 <p>Settings of cookies |</p>
-                <p>© SKEMA 2020</p>
+                <p>© SynthèseIA Inc. 2024</p>
             </div>
             <div className="sk-footer-logos">
-                <a href="https://www.skema.edu" alt="SKEMA">
+                <a href="https://www.synthese.ai" alt="SynthèseIA Inc.">
                     <img src={logo_left} alt='' /></a>
                 <a href="https://www.aacsb.edu/" alt="aacsb" target="_blank" rel="noreferrer noopener">
                     <img src={aacsb} alt=''/></a>

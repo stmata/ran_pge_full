@@ -106,7 +106,7 @@ export default function Cours() {
    * Effect hook to update the document's title and fetch data on component mount.
    */
   useEffect(() => {
-    document.title = `RAN PGE - Courses`;
+    document.title = `E-Kelasi - Courses`;
 
     if (level && cours && cours.length === 0) {
       fetchData();

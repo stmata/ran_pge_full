@@ -34,7 +34,7 @@ export default function Introduction() {
    * UseEffect hook to set the document title and redirect to the cours page if necessary.
    */
   useEffect(() => {
-    document.title = `RAN PGE - Introduction`;
+    document.title = `E-Kelasi - Introduction`;
     
     if (userEvaluationInitial || !coursSelected) {
         navigate("/cours");

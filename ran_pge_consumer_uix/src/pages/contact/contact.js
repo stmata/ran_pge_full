@@ -26,7 +26,7 @@ export default function Contact() {
 
     // Effect to set the document title and navigate to courses page if authenticated.
     useEffect(() => {
-        document.title = `RAN PGE - Contact`; // Setting the page title.
+        document.title = `E-Kelasi - Contact`; // Setting the page title.
         if (auth) {
             navigate('/cours'); // Navigate to the courses page if user is authenticated.
         }

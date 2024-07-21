@@ -67,7 +67,7 @@ function Login() {
 
   // Change the title of the index.html
   useEffect(() => {
-    document.title = `RAN PGE - Login`;
+    document.title = `E-Kelasi - Login`;
   }, []);
 
   /**

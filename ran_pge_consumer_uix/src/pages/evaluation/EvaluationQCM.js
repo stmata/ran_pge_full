@@ -63,7 +63,7 @@ export default function Evaluation() {
      */
     useEffect(() => {
       // Set document title
-      document.title = `RAN PGE - Evaluation`;
+      document.title = `E-Kelasi - Evaluation`;
       console.log(globalEvaluationEnabled)
       /**
        * Fetches evaluation questions from the server based on user data.

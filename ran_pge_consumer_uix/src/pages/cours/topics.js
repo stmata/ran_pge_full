@@ -134,7 +134,7 @@ export default function Topics() {
    * @param {Array} dependencies - The dependencies array to specify when the effect should re-run.
    */
   useEffect(() => {
-    document.title = `RAN PGE - Documents`;
+    document.title = `E-Kelasi - Documents`;
     setGlobalEvaluationEnabled(false)
     fetchDataFrameStatus()
     try {          

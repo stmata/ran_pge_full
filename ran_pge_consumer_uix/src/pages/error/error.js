@@ -19,7 +19,7 @@ import { useEffect } from 'react'
 export default function NotFoundPage() {
   // change the title of index.hmlt
   useEffect(() => {
-    document.title = `RAN PGE Error Page`;
+    document.title = `E-Kelasi Error Page`;
   }, []);
   return (
     <>

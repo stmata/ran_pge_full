@@ -69,7 +69,7 @@ export default function Dashboard() {
      * @returns {void}
      */
     useEffect(() => {
-        document.title = `RAN PGE - Dashbord`;
+        document.title = `E-Kelasi - Dashbord`;
       }, []);
 
       // A welcome message that will be passed to the Header component as a prop.

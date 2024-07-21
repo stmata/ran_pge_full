@@ -17,7 +17,7 @@ function Home() {
 
   // Effect to set the document title and navigate to courses page if authenticated
   useEffect(() => {
-    document.title = `RAN PGE - Home`; // Setting the page title
+    document.title = `E-Kelasi - Home`; // Setting the page title
     console.log(process.env.REACT_APP_MIDDLEWARE_AGENT)
     if (auth) { // If the user is authenticated
         navigate('/cours') // Navigate to the courses page

@@ -18,7 +18,7 @@ const voices = [
 /**
  * The default message to be spoken by the Text-to-Speech service.
  */
-const message = 'SKEMA Canada: SKEMA Business Schools Artificial Intelligence Innovation Centre';
+const message = 'Sythese AI Incorporation';
 
 /**
  * VoiceSelector component allows users to select a voice for text-to-speech functionality.

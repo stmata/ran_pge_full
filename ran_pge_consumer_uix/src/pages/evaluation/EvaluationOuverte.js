@@ -65,7 +65,7 @@ export default function EvalOuverte() {
     const {  error, getQuestionReferences } = useGetReferencesFromDatafram();
     useEffect(() => {
         // Set document title
-        document.title = `RAN PGE - Evaluation`;
+        document.title = `E-Kelasi - Evaluation`;
         if (level !== "L3"){
             navigate("/cours")
         }
