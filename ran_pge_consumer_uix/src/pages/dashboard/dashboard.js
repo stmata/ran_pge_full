@@ -19,6 +19,8 @@ import {CourseEvolutionChartModulNote, CourseEvolutionChartGlobalNote, processDa
 export default function Dashboard() {
     const { userID } = useUser();
     const [courses, setCourses] = useState([])
+    const [averageNotes, SetAverageNotes] = useState({})
+    const [lastsNotes, SetLastNotes] = useState({})
     const {level} = useStateGlobal()
     
     /**
@@ -47,10 +49,14 @@ export default function Dashboard() {
         });
         const fetchData = async () => {
             try {
-              const { lastNotes } = await processData(userID); // Appel asynchrone à processData
+              const { averageNote, lastNotes } = await processData(userID); // Appel asynchrone à processData
               const courses1 = lastNotes ? Object.keys(lastNotes) : [];
               //console.log(courses1)
+              console.log(lastNotes)
               setCourses(courses1);
+              SetAverageNotes(averageNote)
+              SetLastNotes(lastNotes)
+              
               // Utilisez les données ici
             } catch (error) {
               // Gérer les erreurs ici
@@ -79,6 +85,17 @@ export default function Dashboard() {
       const labelAverageNote = level !== "L3" ? "Average Note Chart" : "Graphique de la Moyenne des Notes"
       const labelLastNote = level !== "L3" ? "Last Note Chart" : "Graphique des Dernières Notes"
       const labelModulNote = level !== "L3" ? "Module Evaluation Chart" : "Graphique des évaluations par modules"
+      const labelStatHeadline = level !== "L3" ? "Stats in numbers" : "Statistiques en chiffres"
+      const labelAverageChart = level !== "L3" ? "Average Notes" : "Moyenne des Notes"
+      const labelLastNoteChart = level !== "L3" ? "Last Note Obtained For Each Course" : "Dernière note obtenue par cours"
+      const labelEvaluationChart = level !== "L3" ? "Module Evaluation" : "Évaluation par module"
+      const labelGlobalEvaluationChart = level !== "L3" ? "Global Evaluation" : "Évaluation Globale"
+
+      const getLastElement = (array) => {
+        return array[array.length - 1];
+      };
+    
+      
       
   return (
     <div className='sk-body-private'>
@@ -87,30 +104,61 @@ export default function Dashboard() {
             {/* <!-- section --> */}
             <section className="section mt-3" style={{marginTop:'2px'}}>
                 <div className="container">
-                    <div className='row box-container'>
-                        <div style={{ marginTop:'20px'}}>
-                            <Expander title={labelAverageNote} >
-                                <AverageNoteChart  />
-                            </Expander>
-                        </div>
-                        <div  style={{marginTop:'20px', marginBottom:'20px'}}>
-                            <Expander title={labelLastNote}>
-                                <LastNoteChart   />
-                            </Expander>
-                        </div>
-                        {courses.map((cours, index) => (
-                            <div  key={cours} style={{ marginBottom: index !== courses.length - 1 ? '20px' : '0' }}>
-                            <Expander title={`${cours} : ${labelModulNote}`}>
-                                <CourseEvolutionChartModulNote cours={cours} />
-                            </Expander><br></br>
-                            {level === "L3" && (
-                                <Expander title={`${cours} : Evaluation Globale`}>
-                                <CourseEvolutionChartGlobalNote cours={cours} />
-                            </Expander>
-                            )}
+                    <div className='row '>
+                        <div className='col-lg-9 col-md-12'>
+                            <div className='row '>
+                                    <div style={{ marginTop:'20px', marginBottom:'20px'}} className='col-lg-6 col-md-12'>
+                                        <Expander title={labelAverageNote} >
+                                            <AverageNoteChart label={labelAverageChart}/>
+                                        </Expander>
+                                    </div>
+                                    <div  style={{marginTop:'20px', marginBottom:'20px'}} className='col-lg-6 col-md-12'>
+                                        <Expander title={labelLastNote}>
+                                            <LastNoteChart label={labelLastNoteChart}/>
+                                        </Expander>
+                                    </div>
+                                    {courses.map((cours, index) => (
+                                        <>
+                                            <div  style={{marginTop:'20px', marginBottom:'20px'}} className='col-lg-6 col-md-12' key={index}>
+                                            <Expander title={`${cours} : ${labelModulNote}`}>
+                                            <CourseEvolutionChartModulNote cours={cours} label={labelEvaluationChart} />
+                                            </Expander>
+                                            </div>
+                                            {level === "L3" && (
+                                            <div  style={{marginTop:'20px', marginBottom:'20px'}} className='col-lg-6 col-md-12'>
+                                                <Expander title={`${cours} : Evaluation Globale`} style={{height:"100%"}}>
+                                                <CourseEvolutionChartGlobalNote cours={cours} label={labelGlobalEvaluationChart} />
+                                                </Expander>
+                                            </div>
+                                            )}
+                                        </>
+                                    ))}
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                        <div className='col-lg-3 col-md-12'>
+                            <h3 className='mt-3 stat-text' style={{fontSize:"20px",fontWeight:"bold",textDecoration:"underline"}}>{labelStatHeadline}</h3>
+                            <h6 className='mt-3 stat-text'>{labelAverageNote.replace("Graphique de la","")} : 
+                                <br/>
+                                {averageNotes && Object.entries(averageNotes).map(([key, value]) => {
+                                    return (<>
+                                        {key} : {value}
+                                        <br/>
+                                    </>)
+                                })}
+                            </h6>
+                            <h6 className='mt-3 stat-text'>{labelLastNote.replace("Graphique de la","")} :
+                            <br/>
+                                {lastsNotes && Object.entries(lastsNotes).map(([key, value]) => {
+                                    const lastElement = getLastElement(lastsNotes[key]);
+                                    return (<>
+                                        {key} : {lastElement.Note}
+                                        <br/>
+                                    </>)
+                                })}
+                            </h6>
+                            {/*<h6 className='mt-3 stat-text'>{labelModulNote.replace("Graphique de la","")} : N/A</h6> */}
+                        </div>
+                    </div>  
                 </div>
             </section>
         </div>
