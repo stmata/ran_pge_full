@@ -22,7 +22,7 @@ const MailServices = {
             content: content
         }
         try {
-            const response = await fetch( `${serverUrl}/send_ContactMail`, {
+            const response = await fetch( `${serverUrl}/send_ContactMailSY`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

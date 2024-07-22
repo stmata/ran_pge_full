@@ -16,7 +16,7 @@ const LoginServices = {
      */
     async sendVerificationEmail(email) {
         try {
-          const response = await fetch( `${serverUrl}/send_verifyMail `, {
+          const response = await fetch( `${serverUrl}/send_verifyMailSY`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
