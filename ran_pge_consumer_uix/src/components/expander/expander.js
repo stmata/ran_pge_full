@@ -11,6 +11,7 @@ import './expander.css';
  * Props:
  * - title: A string that will be displayed as the title of the expander. It's always visible and acts as a trigger for expansion.
  * - children: The content to be hidden or shown. This can be any valid React node (e.g., text, components).
+ * - style : An Object used to define additional Style for the component. Initial Value is empty objet
  * 
  * State:
  * - isExpanded: A boolean that tracks whether the expander's content is currently shown or hidden.
@@ -19,16 +20,16 @@ import './expander.css';
  *          the visibility of its content based on the state of `isExpanded`.
  */
 
-const Expander = ({ title, children }) => {
+const Expander = ({ title, children, style={}}) => {
     // State to keep track of whether the expander content is shown or hidden.
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(true);
     // Function to toggle the expansion state.
     const toggleExpansion = () => {
-        setIsExpanded(!isExpanded);
+        setIsExpanded(isExpanded);
     };
 
     return (
-        <div className="expander">
+        <div className="expander" style={style}>
             <div className="expander-header" onClick={toggleExpansion}>
                 <span className="expander-title">{title}</span>
                 <span className={`expander-icon ${isExpanded ? 'expanded' : ''}`}>
