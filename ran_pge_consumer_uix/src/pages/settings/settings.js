@@ -78,7 +78,7 @@ const Settings = () => {
                               <div className="toggle"></div>
                               <div className="names">
                                 <p className="light">Light</p>
-                                <p className="dark">Dark</p>
+                                <p className="dark" style={{transform:"translateX(-10px)"}}>Dark</p>
                               </div>
                             </label>
                             {/* Level selection section */}
@@ -93,8 +93,8 @@ const Settings = () => {
                               <label className="labelLevel" htmlFor="level-switch">
                                 <div className="toggleLevel" ></div>
                                 <div className="namesLevel">
-                                  <p className={level === 'L3' ? "L3 selected" : "L3"}>L3</p>
-                                  <p className={level === 'M1' ? "M1 selected" : "M1"}>M1</p>
+                                  <p className={level === 'L3' ? "L3 selected" : "L3"} style={{transform:"translateX(75%)"}}>L3</p>
+                                  <p className={level === 'M1' ? "M1 selected" : "M1"} style={{transform:"translateX(-105%)"}}>M1</p>
                                 </div>
                               </label>
                             </div>

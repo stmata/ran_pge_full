@@ -252,7 +252,7 @@
   color: black;
   width: 65%;
   margin-left: 17.5%;
-  margin-top: 6.5%;
+  margin-top: 4.5%;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -282,6 +282,22 @@
 [type="checkbox"] {
   display: none;
 }
+
+input[type="checkbox"] + .app .M1 {
+  opacity: 1;
+  color : white
+}
+
+input[type="checkbox"]:checked + .app .L3.selected {
+  opacity: 1;
+  color : black
+}
+
+input[type="checkbox"]:checked + .app .L3 {
+  opacity: 1;
+  color : white
+}
+
 /* Toggle */
 [type="checkbox"]:checked + .app .toggle {
   -webkit-transform: translateX(100%);
@@ -378,7 +394,7 @@
   color: black;
   width: 65%;
   margin-left: 17.5%;
-  margin-top: 6.5%;
+  margin-top: 4.5%;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
