@@ -232,6 +232,19 @@ export const GlobaleStyles = createGlobalStyle`
         color: ${({theme}) => theme.text};
     };
 
+    .chat-navigation__links a{
+        color : ${({theme}) => theme.text};
+    };
+
+    .sidebar-bottom__profile-icon svg , .sk-profileContainer__profile-icon svg{
+        fill : ${({theme}) => theme.text};
+    }
+    
+    .stat-text{
+        color : ${({theme}) => theme.text};
+    }
+        
+
     
 `;
 
