@@ -93,7 +93,7 @@ export default function Contact() {
         <Header/>
         <section className="home-section">
         <div className="container">
-                    <div className="row">
+                    <div className="row d-flex justify-content-center align-items-center">
                         <div className="col-lg-12 col-12">
                             <h3 className="mb-4 pb-2">Contact Us</h3>
                         </div>
@@ -118,17 +118,12 @@ export default function Contact() {
                                             <textarea value={content} onChange={handleChangeContent} className="sk-form-control" id="message" name="message" placeholder="Message ..." required></textarea>
                                         </div>
                                     </div>
-                                    <div className="col-lg-4 col-12 ms-auto">
+                                    <div className="col-lg-4 col-12">
                                         <button type="submit" class="sk-btn_submit">Submit</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-lg-5 col-12 mx-auto mt-5 mt-lg-0">
-                            <iframe className="sk-google-map"  width="85%" height="350" style={{backgroundImage: `url(${require('../../assets/images/contact.png')})`,backgroundRepeat: 'no-repeat',backgroundSize:'cover',backgroundPosition: '50%'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title='photocontact'>
-                            </iframe>
-                        </div>
-
                     </div>
                 </div>
         </section>
