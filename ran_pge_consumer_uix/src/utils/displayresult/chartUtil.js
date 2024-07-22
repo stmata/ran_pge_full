@@ -144,9 +144,11 @@ const getRandomColor = () => {
  
 /**
  * A component to display a scatter chart representing the last notes obtained for each course.
+ *  * Props:
+ * - label: A string that will be displayed as the inside title of the chart. 
  * @returns {JSX.Element} A scatter chart component.
  */
-export const LastNoteChart = () => {
+export const LastNoteChart = ({label="Last Note Obtained For Each Course"}) => {
   const { userID } = useUser();
   const [chartData, setChartData] = useState(null);
 
@@ -171,7 +173,7 @@ export const LastNoteChart = () => {
         labels,
         datasets: [
           {
-            label: 'Last Note Obtained For Each Course',
+            label: label,
             data: data.map((note, index) => ({ x: labels[index], y: note })),
             backgroundColor: backgroundColors,
             borderColor: 'rgba(54, 162, 235, 1)',
@@ -195,9 +197,11 @@ export const LastNoteChart = () => {
  
 /**
  * A component to display a bar chart representing the average notes for each course.
+ * Props:
+ * - label: A string that will be displayed as the inside title of the chart
  * @returns {JSX.Element} A bar chart component.
  */
-export const AverageNoteChart = () => {
+export const AverageNoteChart = ({label="Average Notes"}) => {
  const { userID } = useUser();
  const [chartData, setChartData] = useState(null);
  
@@ -215,7 +219,7 @@ export const AverageNoteChart = () => {
     labels,
     datasets: [
     {
-      label: 'Average Notes',
+      label: label,
       data,
       backgroundColor: 'rgba(75, 192, 192, 1)', 
       borderColor: 'rgba(75, 192, 192, 1)',
@@ -300,7 +304,7 @@ export const CourseEvolutionChart = ({ cours }) => {
 
 
 
-export const CourseEvolutionChartModulNote = ({ cours }) => {
+export const CourseEvolutionChartModulNote = ({ cours , label="Modul Evaluation" }) => {
   const { userID } = useUser();
   
   const [chartData, setChartData] = useState(null);
@@ -349,7 +353,7 @@ export const CourseEvolutionChartModulNote = ({ cours }) => {
           labels: chartData.labelsOther.length ? chartData.labelsOther : ["No Data"],
           datasets: [
             {
-              label: `Modul Evaluation`,
+              label: label,
               data: chartData.dataOther.length ? chartData.dataOther : [0],
               borderColor: 'rgba(75, 192, 192, 1)',
               borderWidth: 2,
@@ -401,7 +405,7 @@ export const CourseEvolutionChartModulNote = ({ cours }) => {
   );  
 };
 
-export const CourseEvolutionChartGlobalNote = ({ cours }) => {
+export const CourseEvolutionChartGlobalNote = ({ cours , label }) => {
   const { userID } = useUser();
   
   const [chartData, setChartData] = useState(null);
@@ -449,7 +453,7 @@ export const CourseEvolutionChartGlobalNote = ({ cours }) => {
           labels: chartData.labelsInitial.length ? chartData.labelsInitial : ["No Data"],
           datasets: [
             {
-              label: `Global Evaluation`,
+              label: label,
               data: chartData.dataInitial.length ? chartData.dataInitial : [0],
               borderColor: 'rgba(255, 99, 132, 1)',
               borderWidth: 2,
