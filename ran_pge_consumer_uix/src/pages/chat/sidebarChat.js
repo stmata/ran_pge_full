@@ -103,6 +103,7 @@ const SidebarChat = ({
     const topicsText = level && level !== "L3" ? "Topics" : "Modules";
     const settingsText = level && level !== "L3" ? "Settings" : "Paramètres";
     const logOutText = level && level !== "L3" ? "Log Out" : "Déconnexion";
+    const chatNavigationText = level && level !== "L3" ? "Quick Navigation" : "Navigation Rapide";
 
     /**
      * Adds an event listener to handle clicks outside the profile options dropdown and removes it on component unmount.
@@ -138,10 +139,21 @@ const SidebarChat = ({
                         </div>
                     ))}
                 </div>
+                <div className='chat-navigation'>
+                    <h6><strong><u>{chatNavigationText}</u></strong></h6>
+                    <div className="chat-navigation__links">
+                        <a href="/dashboard">{dashboardText}</a>
+                        <a href="/cours">{coursesText}</a>
+                        <a href="/topics">{topicsText}</a>
+                    </div>
+                </div>
                 <div className="sidebar-bottom">
                     <div className="profile-container" ref={profileContainerRef} onClick={handleProfileClick}>
                         <div className="profile-initials">{initials}</div>
                         <div className="profile-name">{username}</div>
+                        <div className='sidebar-bottom__profile-icon'>
+                            {isDropdownOpen ?  (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 6.586-8.707 8.707 1.414 1.414L12 9.414l7.293 7.293 1.414-1.414L12 6.586z"/></svg>):  (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"/></svg>)}
+                        </div>
                     </div>
                     {isDropdownOpen && (
                         <div className="profile-dropdown-menu" ref={dropdownRef}>
