@@ -208,7 +208,7 @@ function Login() {
  * @param {Object} email - The user's email address.
  */
 const sendCode = async () => {
-    if (isSkemaEmail(email)) {
+    if (email.length !== 0) {
       try {
         const verificationResponse = await LoginServices.sendVerificationEmail(email);
         if (verificationResponse.success) {
