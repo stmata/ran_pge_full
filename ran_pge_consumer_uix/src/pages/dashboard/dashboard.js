@@ -52,7 +52,7 @@ export default function Dashboard() {
               const { averageNote, lastNotes } = await processData(userID); // Appel asynchrone à processData
               const courses1 = lastNotes ? Object.keys(lastNotes) : [];
               //console.log(courses1)
-              console.log(lastNotes)
+              //console.log(lastNotes)
               setCourses(courses1);
               SetAverageNotes(averageNote)
               SetLastNotes(lastNotes)
