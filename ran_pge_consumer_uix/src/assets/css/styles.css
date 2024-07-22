@@ -91,7 +91,11 @@
 
 .sk-profileContainer {
     position: relative;
-  }
+}
+.sk-profileContainer__profile-icon{
+  margin-left: 10px;
+  margin-right: 10px;
+}
   
 .sk-profile {
     display: flex;

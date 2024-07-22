@@ -131,12 +131,14 @@ function Navbar({theme}) {
           <div className='sk-profile' onClick={toggleDropdown}>
             <span className='sk-initialsCircle'>{initials}</span>
             <span className='sk-profileName'>{username}</span>
+            <div className='sk-profileContainer__profile-icon'>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"/></svg>
+            </div>
           </div>
           {isOpen && (
             <div className='sk-dropdownMenu'>
               <a href="/dashboard">{dashboardText}</a>
               <a href="/cours">{coursesText}</a>
-              <a href="/topics">{topicsText}</a>
               <a href="/settings">{settingsText}</a>
               <a href="/" onClick={logOut}>{logOutText}</a>
             </div>
