@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Evaluationservices from '../../services/evaluationServices';
 import { useUser } from '../../context/userContext'
 import useGetReferencesFromDatafram from '../../hooks/referencefromdatafram';
+import ModalUnansweredQC from './utils/modalUnansweredQuestions';
 
 /**
  * Constant array that holds encouragement messages for different score ranges.
@@ -163,6 +164,9 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
     const [fetchRoadMap, setFetchRoadMap] = useState(false)
     const [btnForRoadMap, setBtnForRoadMap] = useState(false);
     const {userID} = useUser()
+    const [openModal, setOpenModal] = useState(false); 
+    const [unansweredIndices, setUnansweredIndices] = useState([]);
+    const [contentModal, setContentModal] = useState(""); 
     const {  error, getQuestionReferences } = useGetReferencesFromDatafram();
 
 
@@ -227,7 +231,11 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [shuffledData]);
       
-
+      const titlefetchReferences = level !== "L3" ? "Fetching reference. Please wait a moment..." : "Récupération des références. Veuillez patienter un moment...";
+      const titleReferenceCompleted = level !== "L3" ? "Fetching reference completed!" : "Récupération des références terminée !";
+      const titleModal = level !== "L3" ? "Please answer the following questions before proceeding:\n" : "Veuillez répondre aux questions suivantes avant de continuer:\n";
+      const btnReturn = level !== "L3" ? "Return To Cours" : "Retour aux Cours";
+      const submitBtn = level !== "L3" ? "Submit" : "Soumettre";
       const wrongAnswerLabel = level !== "L3" ? "Wrong Answer" : "Mauvaise réponse";
       const rightAnswerLabel = level !== "L3" ? "Right Answer" : "Bonne réponse";
       const markLabel = level !== "L3" ? "Mark" : "Marque";
@@ -380,7 +388,7 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
             if (!isFetch && laodpage && !dataFrameStatus) {
             Toast.fire({
                 icon: 'success',
-                title: 'Fetching reference completed!'
+                title: titleReferenceCompleted
             });
             //console.log(shuffledData)
             }
@@ -398,7 +406,7 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
             stopTimer();
             Toast.fire({
                 icon: 'info',
-                title: 'Fetching reference. Please wait a moment...'
+                title: titlefetchReferences
             });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -410,7 +418,7 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
      * Determines if the submit button should be disabled based on whether any answers are still null (unanswered).
      * @constant {boolean}
      */
-    const isSubmitDisabled = userAnswers.some(answer => answer === null) || isFetch;
+    //const isSubmitDisabled = userAnswers.some(answer => answer === null) || isFetch;
 
     /**
      * Calculates the score based on the number of correct answers and converts it to a percentage of the total questions.
@@ -472,6 +480,31 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
         return questionsByModule;
     };
 
+     /**
+     * Checks if there are unanswered questions in userAnswers array.
+     * Returns true if there is any unanswered question, otherwise false.
+     * If there are unanswered questions, logs their indices (1-based) to the console.
+     * 
+     * @returns {boolean} True if there are unanswered questions, false otherwise.
+     */
+
+     const checkUnansweredIndices = () => {
+        
+        const unansweredIndices = userAnswers.reduce((acc, answer, index) => {
+            if (answer === null) {
+                acc.push(index + 1);
+            }
+            return acc;
+        }, []);
+        
+        return unansweredIndices;
+    };
+
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
+
     /**
      * Handles the submission of the quiz.
      * Stops the timer, evaluates the answers, updates the results state, and sends the note to the server.
@@ -479,7 +512,25 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
      * @function
      * @name handleSubmit
      */
+
     const handleSubmit = async() => {
+
+        const unansweredQuestions = userAnswers.some(answer => answer === null);
+
+        if (unansweredQuestions) {
+            const unansweredIndices = checkUnansweredIndices()
+            setUnansweredIndices(unansweredIndices);
+            setOpenModal(true);
+            return; 
+        }
+
+        if(isFetch){
+            Toast.fire({
+                icon: 'info',
+                title: 'Fetching reference. Please wait a moment...'
+            });
+            return
+        }
         // Stop the quiz timer
         stopTimer();
         
@@ -635,14 +686,14 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
      * @name SubmitButton
      * @param {boolean} isDisabled - Indicates whether the button should be disabled.
      */
-    const SubmitButton = ({ isDisabled }) => {
+    const SubmitButton = () => {
         if (isQuit) {
             return (
                 <div className='scroll_submit' style={{ display: 'flex', alignItems: 'center' }}>
                     <Button variant="contained" sx={{ marginRight: '15px' }}
                         onClick={() => window.location.href = '/cours'}
                     >
-                        Return To Cours
+                        {btnReturn}
                     </Button>
                     {/* Render ScrollDialog component if btnForRoadMap is true */}
                     {btnForRoadMap && (
@@ -655,11 +706,9 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
         } else {
             return (
                 <button className='btn-submit'
-                    style={{ opacity: isDisabled ? 0.5 : 1, }}
                     onClick={handleSubmit}
-                    disabled={isDisabled}
                 >
-                    Submit
+                    {submitBtn}
                 </button>
             );
         }
@@ -750,18 +799,24 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
                 <div className="score">
                     <div className='score-legend'>
                         <div className='legend-wrong legend-answer'></div>
-                        <span>{wrongAnswerLabel}:</span>
+                        <span>: {wrongAnswerLabel}</span>
                         <div className='legend-right legend-answer'></div>
-                        <span>{rightAnswerLabel}:</span>
+                        <span>: {rightAnswerLabel}</span>
                     </div>
                     <p>{markLabel}: {score}/{data.length}</p>
                     <p>{percentageLabel}: {percentage} %</p>
                     <p>{encouragementText[0]} <span>{encouragementText[1]}</span></p>
                 </div>
             )}
-                <SubmitButton isDisabled={isSubmitDisabled} />
+                <SubmitButton  />
                 </>
             )}
+            <ModalUnansweredQC
+                open={openModal}
+                onClose={handleCloseModal}
+                title= {titleModal}
+                content={unansweredIndices}
+            />
             </div>
         );
         
