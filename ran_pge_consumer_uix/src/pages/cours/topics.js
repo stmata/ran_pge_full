@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Evaluationservices from '../../services/evaluationServices';
-import Header from '../../components/header/privateHeader';
+//import Header from '../../components/header/privateHeader';
 import CardTopics from './card/CardTopics';
 import { useStateGlobal } from '../../context/contextStateGlobale';
 import sessionImage from '../../assets/images/session.png'
@@ -38,7 +38,7 @@ import defaultImage from '../../assets/images/bloc_formations_degrade.jpg'
 export default function Topics() {
     const navigate = useNavigate();
     const { coursSelected, topics, level, evaluationInitial, setGlobalEvaluationEnabled, setUserEvaluationInitial, setDataFrameStatus } = useStateGlobal();
-    const title = level !== "L3" ? (coursSelected || "No Topic information is available at the moment.") : (coursSelected || "Aucune information du cours n'est disponible pour le moment.");
+    //const title = level !== "L3" ? (coursSelected || "No Topic information is available at the moment.") : (coursSelected || "Aucune information du cours n'est disponible pour le moment.");
 
     /**
    * Array containing session names for a marketing course at M1 level.
@@ -134,7 +134,7 @@ export default function Topics() {
    * @param {Array} dependencies - The dependencies array to specify when the effect should re-run.
    */
   useEffect(() => {
-    document.title = `E-Kelasi - Documents`;
+    //document.title = `E-Kelasi - Documents`;
     setGlobalEvaluationEnabled(false)
     fetchDataFrameStatus()
     try {          
@@ -176,7 +176,7 @@ export default function Topics() {
 
   const topicGlobalEvaluation = level === 'L3' ? 'Evaluation Globale' : "Global Evaluation";
   const txtDescription = level === 'L3' ? 'Es-tu prêt à montrer de quoi tu es capable ?' : "Are you ready to show what you're capable of?";
-  const titles = level !== "L3" ? `In this refresher course, you'll be able to gauge your general understanding of the main concepts in ${coursSelected}. It will consist of a quiz of 5 questions covering the whole contents of the course.` : `Dans ce cours de mise à niveau, vous pourrez évaluer votre compréhension générale des principaux concepts en ${coursSelected}. Il consistera en un quiz de 5 questions couvrant l'ensemble du contenu du cours.`;
+  //const titles = level !== "L3" ? `In this refresher course, you'll be able to gauge your general understanding of the main concepts in ${coursSelected}. It will consist of a quiz of 5 questions covering the whole contents of the course.` : `Dans ce cours de mise à niveau, vous pourrez évaluer votre compréhension générale des principaux concepts en ${coursSelected}. Il consistera en un quiz de 5 questions couvrant l'ensemble du contenu du cours.`;
     /**
    * Renders the list of topics.
    * 
@@ -186,9 +186,7 @@ export default function Topics() {
    * @returns {JSX.Element} The JSX representation of the Topics component.
    */
   return (
-    <div className="sk-body-private">
-      {/* <!-- Header --> */}
-      <Header title={title} subtitle={titles} />
+    <>
       <section className="mt-5">
         <div className="container">
           <div className="row">
@@ -223,6 +221,6 @@ export default function Topics() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

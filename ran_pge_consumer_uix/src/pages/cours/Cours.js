@@ -13,6 +13,8 @@ import img_geo_politique from '../../assets/images/Geopolitics.png';
 import img_economie from '../../assets/images/Economics.png';
 import img_statsmaths from '../../assets/images/Stats maths.png';
 import img_marketing from '../../assets/images/Marketing.png';
+import topicsImg from '../../assets/images/topicsImages.png'
+import Topics from './topics';
 
 /**
  * Cours Component
@@ -42,8 +44,8 @@ import img_marketing from '../../assets/images/Marketing.png';
 export default function Cours() {
   const {userID} = useUser()
   const { level, setEvaluationInitial } = useStateGlobal();
-  const navigate = useNavigate();
-  const { setCoursSelected, setTopics, setCoursDescription, cours, setCours } = useStateGlobal();
+  //const navigate = useNavigate();
+  const { setCoursSelected, topics, setTopics, setCoursDescription, cours, setCours } = useStateGlobal();
 
 
   /**
@@ -150,7 +152,7 @@ export default function Cours() {
         setTopics(course.topics);
         setCoursSelected(coursSelected);
         setCoursDescription(coursDescription);
-        navigate('/topics');
+        //navigate('/topics');
       } else {
         console.log('No documents found for this course.');
         Toast.fire({
@@ -168,12 +170,12 @@ export default function Cours() {
   
   return (
     <div className="sk-body-private">
-      {/* <!-- Header --> */}
-      <Header title={title} subtitle={subtitle}/>
-      <section className="mt-5 mx-5"><center>
-          <div className="row">
+      <Header title={title} />
+      <section className="course-section">
+        <div className="course-grid">
+          <div className="course-list">
             {cours.map((course) => (
-              <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" key={course._id}>
+              <div className="course-card mb-4" key={course._id}>
                 <CardCours
                   title={course.name}
                   stars={course.stars}
@@ -182,10 +184,21 @@ export default function Cours() {
                   evenement={course.status ? () => fetchChaptersByCourseId(course._id, course.name, course.description) : null}
                   buttonText={course.status ? (level !== "L3" ? 'Open' : 'Ouvrir') : (level !== "L3" ? 'Not Available' : 'Pas Disponible')}
                   buttonDisabled={!course.status}
-                  />
+                />
               </div>
             ))}
-          </div></center>
+          </div>
+          <div className="course-details">
+          {(!topics || topics.length === 0) ? (
+            <div className='loadingTopics'>
+              <h2>{subtitle}</h2>
+              <img className='topicsIMG' src={topicsImg} alt='topicsIlmages'/>
+            </div>
+            ) : (
+              <Topics />
+            )}
+          </div>
+        </div>
       </section>
     </div>
   )

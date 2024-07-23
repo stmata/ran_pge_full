@@ -103,7 +103,7 @@ export default function EvalOuverte() {
                 }
             } catch (error) {
                 console.error('Error fetching questions:', error);
-                navigate("/topics")
+                navigate("/cours")
             }
         };
         fetchQuestions();

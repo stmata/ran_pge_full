@@ -719,7 +719,7 @@ export default function Chat() {
             }
         } catch (error) {
             console.error("Error in useEffect:", error.message);
-            navigate('/topics'); // Redirect to the chapters page in case of error
+            navigate('/cours'); // Redirect to the chapters page in case of error
         }
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []); // Run this effect only once when the component mounts

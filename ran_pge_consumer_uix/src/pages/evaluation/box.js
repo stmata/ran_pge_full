@@ -755,11 +755,11 @@ export default function Box({ data, stopTimer, totalTime, courSelected, topic, l
                                     <div>
                                         {dataFrameStatus ? (
                                             <>
-                                                <h3>{fetchReference[shuffledData[index][3]]}</h3>
+                                                <h3 className='reference-h3'>{fetchReference[shuffledData[index][3]]}</h3>
                                             </>
                                         ) : (
                                             <>
-                                            <h3>Sources & Chunks</h3><br />
+                                            <h3 className='reference-h3'>Sources & Chunks</h3><br />
                                             <p>{fetchReference[shuffledData[index][3]].sources}</p> 
                                             <p>{fetchReference[shuffledData[index][3]].chunks}</p> 
                                         </>

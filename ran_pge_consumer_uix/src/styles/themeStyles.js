@@ -246,6 +246,15 @@ export const GlobaleStyles = createGlobalStyle`
     
     .stat-text{
         color : ${({theme}) => theme.text};
+    };
+
+    .course-section {
+        background-color: ${({theme}) => theme.body};
+        color: ${({theme}) => theme.text};
+    };
+
+    .reference-h3 {
+    color: ${({theme}) => themeColors.black};
     }
         
 

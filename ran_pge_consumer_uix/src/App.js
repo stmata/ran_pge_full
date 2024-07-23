@@ -4,7 +4,6 @@ import Contact from './pages/contact/contact';
 import NotFoundPage from './pages/error/error'; 
 import Login from './pages/login/login'
 import Cours from './pages/cours/Cours';
-import Topics from './pages/cours/topics';
 import Chat from './pages/chat/chat';
 import Level from './pages/level/Level';
 import Settings from './pages/settings/settings';
@@ -50,7 +49,6 @@ function App() {
             <Route path='/settings' element={<Settings />} />
             <Route path='/evaluation' element={<Evaluation />} />
             <Route path='/evaluationOuverte' element={<EvalOuverte />} />
-            <Route path='/topics' element={<Topics />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/cours' element={<Cours />} />
             <Route path='/chat' element={<Chat />} />

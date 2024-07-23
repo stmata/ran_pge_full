@@ -108,7 +108,7 @@ export default function Evaluation() {
           }
         } catch (error) {
           console.error('Error fetching questions:', error.message);
-          navigate('/topics'); 
+          navigate('/cours'); 
         } finally {
           setIsLoading(false); 
         }
@@ -135,7 +135,7 @@ export default function Evaluation() {
           }
         } catch (error) {
             console.error('Error fetching QCM questions:', error.message);
-            navigate('/topics');
+            navigate('/cours');
         } finally {
             setIsLoading(false);
         }

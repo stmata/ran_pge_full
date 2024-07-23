@@ -144,7 +144,7 @@ const SidebarChat = ({
                     <div className="chat-navigation__links">
                         <a href="/dashboard">{dashboardText}</a>
                         <a href="/cours">{coursesText}</a>
-                        <a href="/topics">{topicsText}</a>
+                        {/*<a href="/topics">{topicsText}</a>*/}
                     </div>
                 </div>
                 <div className="sidebar-bottom">
@@ -159,7 +159,7 @@ const SidebarChat = ({
                         <div className="profile-dropdown-menu" ref={dropdownRef}>
                             <a href="/dashboard">{dashboardText}</a>
                             <a href="/cours">{coursesText}</a>
-                            <a href="/topics">{topicsText}</a>
+                            {/*<a href="/topics">{topicsText}</a>*/}
                             <a href="/settings">{settingsText}</a>
                             <a href="/" onClick={logOut}>{logOutText}</a>
                         </div>
