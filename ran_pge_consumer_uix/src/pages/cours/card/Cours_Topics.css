@@ -4,8 +4,8 @@
     max-width: 370px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: -3px 3px #A2CCCE, 
-                -3px 3px #A2CCCE,
+    box-shadow: -3px 3px #6b001db2, 
+                -3px 3px #6b001db2,
                 3px -3px   rgba(0, 0, 0, 0.3), 
                 3px -3px  rgba(0, 0, 0, 0.3);
     background: #fff; 
@@ -14,8 +14,8 @@
   
   .sk-card:hover {
     transform: scale(1.05);
-    box-shadow: -3px 3px #F7F410, 
-                -3px 3px #F7F410,
+    box-shadow: -3px 3px #6b001db2, 
+                -3px 3px #6b001db2,
                 3px -3px   rgba(0, 0, 0, 0.3), 
                 3px -3px  rgba(0, 0, 0, 0.3);
   }
@@ -159,7 +159,7 @@
     width: 150px;
     bottom: calc((1.25rem - 0.5rem) * -1);
     left: -1.25rem;
-    background-color: #026973; /* Replaced with the actual color value */
+    background-color: #6b001db2; /* Replaced with the actual color value */
   }
   
   .sk-custom-card__button {
@@ -169,7 +169,7 @@
     font-weight: bold;
     border-radius: 0.45em;
     border: none;
-    background-color: #026973;
+    background-color: #6b001db2;
     font-size: 1.125rem;
     color: white;
     opacity: 1; /* Assure que le bouton est visible par défaut */
@@ -206,7 +206,7 @@
     font-weight: bold;
     border-radius: 0.45em;
     border: none;
-    background-color: #026973;
+    background-color: #6b001db2;
     font-size: 1.125rem;
     color: white;
     margin: 0 0.5em;
