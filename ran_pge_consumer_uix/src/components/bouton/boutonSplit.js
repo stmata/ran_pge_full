@@ -79,7 +79,7 @@ const SplitButton = ({ topicName }) => {
         
       >
         <Button onClick={handleClick} style={{
-          backgroundImage: 'linear-gradient(15deg, #13547a 0%, #80d0c7 100%)',
+          backgroundImage: 'linear-gradient(15deg, #6b001db2 0%, #d97c40 100%)',
           color: 'white',
           width: '90px' // changer la couleur du texte si nécessaire
         }} >{options[selectedIndex]}</Button>
@@ -91,7 +91,7 @@ const SplitButton = ({ topicName }) => {
           aria-haspopup="menu"
           onClick={handleToggle}
           style={{
-            backgroundImage: 'linear-gradient(15deg, #13547a 0%, #80d0c7 100%)',
+            backgroundImage: 'linear-gradient(15deg, #6b001db2 0%, #d97c40 100%)',
             color: 'white',
         }}
         >
