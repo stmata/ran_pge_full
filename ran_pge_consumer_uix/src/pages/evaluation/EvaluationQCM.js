@@ -177,7 +177,7 @@ export default function Evaluation() {
         <div className='sk-body-private'>
             {isLoading ? <Header /> : <Header title={title}/>}
             <section className="section" style={{marginTop:'2px'}}>
-                <div className="container">
+                <div className="container-fluid">
                     <div className='row align-right'>
                         {isLoading ? null : (
                             <div className='col-12 d-flex justify-content-end'>

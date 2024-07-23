@@ -277,7 +277,7 @@ export default function EvalOuverte() {
         <div className='sk-body-private'>
             <Header title={title}/>
             <section className="section" style={{marginTop:'2px'}}>
-                <div className="container">
+                <div className="container-fluid" style={{padding: "30px"}}>
                     <div className='row align-right'>
                         <div className='col-12 d-flex justify-content-end'>
                             <div className='timer-quiz'></div>
