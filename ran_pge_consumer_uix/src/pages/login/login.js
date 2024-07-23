@@ -90,10 +90,10 @@ function Login() {
    * @param {string} email - The email address to check.
    * @returns {boolean} - Returns true if the email is a Skema email, false otherwise.
    */
-  const isSkemaEmail = (email) => {
+  /*const isSkemaEmail = (email) => {
     const skemaEmailRegex = /@skema\.edu$/;
     return skemaEmailRegex.test(email);
-  };
+  };*/
 
   /**
    * Show the verification code dialog.
@@ -208,7 +208,7 @@ function Login() {
  * @param {Object} email - The user's email address.
  */
 const sendCode = async () => {
-    if (isSkemaEmail(email)) {
+    if (email.length !== 0) {
       try {
         const verificationResponse = await LoginServices.sendVerificationEmail(email);
         if (verificationResponse.success) {

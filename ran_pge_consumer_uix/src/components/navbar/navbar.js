@@ -79,7 +79,7 @@ function Navbar({theme}) {
     }
   };
 
-  const { level } = useStateGlobal()
+  const { level, topics } = useStateGlobal()
   const dashboardText = level && level !== "L3" ? "Dashboard" : "Tableau de bord";
   const coursesText = level && level !== "L3" ? "Courses" : "Cours";
   const topicsText = level && level !== "L3" ? "Topics" : "Modules";
@@ -136,7 +136,7 @@ function Navbar({theme}) {
             <div className='sk-dropdownMenu'>
               <a href="/dashboard">{dashboardText}</a>
               <a href="/cours">{coursesText}</a>
-              <a href="/topics">{topicsText}</a>
+              {topics.length !== 0 && <a href="/topics">{topicsText}</a>}
               <a href="/settings">{settingsText}</a>
               <a href="/" onClick={logOut}>{logOutText}</a>
             </div>
