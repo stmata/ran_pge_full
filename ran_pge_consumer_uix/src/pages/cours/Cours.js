@@ -111,8 +111,8 @@ export default function Cours() {
     if (level && cours && cours.length === 0) {
       fetchData();
       fetchInitialEvaluation();
-
     }
+    setTopics([]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
