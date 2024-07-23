@@ -34,7 +34,7 @@
 .voice-option {
   padding: 10px 15px;
   margin: 10px 0;
-  background-color: rgb(50, 201, 189);
+  background-color: rgb(220 79 79);
   color: black;
   font-weight: bold;
   border-radius: 20px;
@@ -46,15 +46,15 @@
 
 .voice-option:hover {
   transition: background-color 0.3s ease;
-  background-color: rgb(42, 159, 149);
+  background-color: rgb(236, 43, 43);
 }
   
 .voice-option.selected {
-    background-color: rgb(42, 159, 149);
+    background-color: rgb(220 79 79);
 }
   
 .confirm-button {
-  background-color: rgb(42, 159, 149);
+  background-color: rgb(220 79 79);
   color: #000;
   border: none;
   padding: 10px 20px;
@@ -69,7 +69,7 @@
 }
   
 .confirm-button:hover {
-  background-color: rgb(84, 210, 199);
+  background-color: rgb(236, 43, 43);
 }
 
 .speaking-indicator {
@@ -82,7 +82,7 @@
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background-color: rgb(42, 159, 149);
+  background-color: rgb(236, 43, 43);
   margin: 0 5px;
 
 }
