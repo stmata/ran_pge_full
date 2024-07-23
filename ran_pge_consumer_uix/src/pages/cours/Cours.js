@@ -42,8 +42,9 @@ import Topics from './topics';
  */
 
 export default function Cours() {
+  const navigate = useNavigate();
   const {userID} = useUser()
-  const { level, setEvaluationInitial } = useStateGlobal();
+  const { level, setEvaluationInitial, evaluationInitial, setUserEvaluationInitial } = useStateGlobal();
   //const navigate = useNavigate();
   const { setCoursSelected, topics, setTopics, setCoursDescription, cours, setCours } = useStateGlobal();
 
@@ -133,6 +134,62 @@ export default function Cours() {
           toast.onmouseleave = Swal.resumeTimer;
       }
   });
+
+    /**
+     * Checks if the user is evaluated for a specific course, level, and evaluation type.
+     * @param {string} courseName - The name of the course.
+     * @param {string} level - User's level (e.g., "L3", "M1").
+     * @param {string} evaluationType - The type of evaluation (e.g., "quizEvaluated", "openEvaluated").
+     * @returns {boolean} Returns true if the user is evaluated, false otherwise.
+     */
+
+    const isUserEvaluated = (courseName, level, evaluationType) => {
+      const courseData = evaluationInitial.find(item => item.courseName === courseName);
+      
+      if (courseData && courseData[level]) {
+          const evaluationData = courseData[level][0]; 
+          if (evaluationData && evaluationData[evaluationType]) { 
+            return true;
+          } else {
+              return false;
+          }
+      } else {
+          return false;
+      }
+    }
+  
+  
+    /**
+   * Checks if the necessary local storage data is present and if the user has been evaluated for the selected course.
+   * Navigates to appropriate routes based on the evaluation status.
+   * @param {string} coursSelected - The selected course.
+   * @param {Array} topics - Array of topics related to the selected course.
+   * @param {string} level - User's level (e.g., "L3", "M1").
+   * @param {Function} setUserEvaluationInitial - Function to set the user's initial evaluation status.
+   * @param {Function} navigate - Function to navigate to different routes.
+   */
+  const checkAndNavigate = (coursSelected) => {
+    try {                
+      const evaluationType = "quizEvaluated";
+  
+      // Check if initial evaluation data is available and if the selected course has not been evaluated yet.
+      const checkEvaluationInitial = isUserEvaluated(coursSelected, level, evaluationType);
+      console.log(checkEvaluationInitial);
+      
+      // Set user's initial evaluation status
+      setUserEvaluationInitial(checkEvaluationInitial);
+      
+      // Redirect user to '/introduction' route if the selected course has not been evaluated yet.
+      if (!checkEvaluationInitial) {
+        navigate('/introduction');
+      }
+  
+    } catch (error) {
+      console.error(error);
+      navigate('/cours');
+    }
+  };
+  
   
   /**
    * Fetches and navigates to chapters of a selected course.
@@ -152,6 +209,7 @@ export default function Cours() {
         setTopics(course.topics);
         setCoursSelected(coursSelected);
         setCoursDescription(coursDescription);
+        checkAndNavigate(coursSelected)
         //navigate('/topics');
       } else {
         console.log('No documents found for this course.');

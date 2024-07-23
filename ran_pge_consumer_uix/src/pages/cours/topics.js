@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
 import Evaluationservices from '../../services/evaluationServices';
 //import Header from '../../components/header/privateHeader';
 import CardTopics from './card/CardTopics';
@@ -36,8 +35,7 @@ import defaultImage from '../../assets/images/bloc_formations_degrade.jpg'
 
 
 export default function Topics() {
-    const navigate = useNavigate();
-    const { coursSelected, topics, level, evaluationInitial, setGlobalEvaluationEnabled, setUserEvaluationInitial, setDataFrameStatus } = useStateGlobal();
+    const { coursSelected, topics, level, setGlobalEvaluationEnabled, setDataFrameStatus } = useStateGlobal();
     //const title = level !== "L3" ? (coursSelected || "No Topic information is available at the moment.") : (coursSelected || "Aucune information du cours n'est disponible pour le moment.");
 
     /**
@@ -71,28 +69,6 @@ export default function Topics() {
     return topicName;
   };
   
-  /**
-     * Checks if the user is evaluated for a specific course, level, and evaluation type.
-     * @param {string} courseName - The name of the course.
-     * @param {string} level - User's level (e.g., "L3", "M1").
-     * @param {string} evaluationType - The type of evaluation (e.g., "quizEvaluated", "openEvaluated").
-     * @returns {boolean} Returns true if the user is evaluated, false otherwise.
-     */
-
-  const isUserEvaluated = (courseName, level, evaluationType) => {
-    const courseData = evaluationInitial.find(item => item.courseName === courseName);
-    
-    if (courseData && courseData[level]) {
-        const evaluationData = courseData[level][0]; 
-        if (evaluationData && evaluationData[evaluationType]) { 
-          return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-  }
 
   /**
   * Fetches and updates the data frame status based on the evaluation status.
@@ -117,48 +93,22 @@ export default function Topics() {
     }
   };
     
-    /**
-   * Effect hook to check if the selected course has been evaluated and redirect the user if not.
+   /**
+   * useEffect hook that runs once after the initial render.
    * 
-   * On component mount:
-   * - Sets the document title to indicate the documents page for the selected course.
-   * - Checks if the initial evaluation data is available and if the selected course has not been evaluated yet.
-   * - If the selected course has not been evaluated, redirects the user to the '/introduction' route.
+   * - Disables global evaluation by setting `setGlobalEvaluationEnabled` to false.
+   * - Fetches the current data frame status by calling `fetchDataFrameStatus`.
+   * - The effect does not re-run on updates to any dependencies because the dependency array is empty.
    * 
-   * This ensures that users are directed to the introduction page if they attempt to access topics
-   * without completing the initial evaluation for the selected course.
-   * 
-   * @function
-   * @name useEffect
-   * @param {Function} effect - The effect function to execute.
-   * @param {Array} dependencies - The dependencies array to specify when the effect should re-run.
+   * Note: The line to set the document title is commented out.
    */
   useEffect(() => {
     //document.title = `E-Kelasi - Documents`;
-    setGlobalEvaluationEnabled(false)
-    fetchDataFrameStatus()
-    try {          
-        if (!coursSelected || (topics && topics.length === 0)) {
-            throw new Error('Local storage data missing');
-        }
-        const evaluationType = "quizEvaluated"
-
-        // Check if initial evaluation data is available and if the selected course has not been evaluated yet.
-        const checkEvaluationInitial = isUserEvaluated(coursSelected,level,evaluationType)
-        console.log(checkEvaluationInitial)
-        setUserEvaluationInitial(checkEvaluationInitial)
-        // Redirect user to '/introduction' route if the selected course has not been evaluated yet.
-        if (!checkEvaluationInitial) {
-          navigate('/introduction');
-        }
-
-    } catch (error) {
-        console.error("Error accessing local storage:", error);
-        // Redirect user to '/cours' route if local storage data is missing.
-        navigate('/cours');
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    setGlobalEvaluationEnabled(false);
+    fetchDataFrameStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   /**
    * Retourne l'image correspondante au nom du topic.
