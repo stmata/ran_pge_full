@@ -210,7 +210,7 @@
   }
   
   .sk-header-private {
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    background-image: linear-gradient(15deg, #6b001db2 0%, #d97c40 100%);
     padding-top: 90px;
     padding-bottom: 10px;
   }
@@ -409,7 +409,7 @@
     border: none;
     border-radius: 100px;
     color: #fff;
-    background-color: #026973;
+    background-color: #6b001db2;
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     font-weight: 600;

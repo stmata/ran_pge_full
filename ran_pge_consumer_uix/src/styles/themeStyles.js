@@ -21,8 +21,8 @@ const themeColors = {
     main_dark:'#1e1e1e',
     messagecontentBotLight : '#E1EFFE',
     messagecontentUserLight : '#F0F0F0',
-    messagecontentBotDark : '#2B4A66',
-    messagecontentUserDark : '#4A4A4A',
+    messagecontentBotDark : '#FFFFFF',
+    messagecontentUserDark : '#FFFFFF',
     texteMessageLight : '#333333',
     texteMessageDark : '#FFFFFF',
     dropdownMenu_border: "#ddd",
@@ -32,7 +32,7 @@ const themeColors = {
     boxShadowEvaluationDark: "0px 87px 78px -39px rgba(255,255,255,0.2)",
     overlayDark : 'rgba(87, 82, 82, 0.8)',
     overlayLight : 'rgba(51, 45, 45, 0.3)',
-    skema_color : "#026973",
+    skema_color : "#6b001db2",
     gray_50: '#f9f9f9',
     gray_100: '#ececec',
     gray_200: '#cdcdcd',
@@ -209,6 +209,10 @@ export const GlobaleStyles = createGlobalStyle`
 
     .radio-input{
         box-shadow: ${({theme}) => theme.boxShadowEvaluation};
+    };
+
+    .radio-input .question-rate{
+        color: ${({theme}) => theme.text};
     };
 
     .msg-instruction p, .score p, .score-legend span, .title-theme {
