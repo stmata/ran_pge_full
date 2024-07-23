@@ -15,6 +15,9 @@ const style = {
   pt: 2,
   px: 4,
   pb: 3,
+  height:"400px",
+  overflowY : "scroll",
+  scrollbarlWidth : "thin"
 };
 
 function ModalUnansweredQC({ open, onClose, title, content }) {
