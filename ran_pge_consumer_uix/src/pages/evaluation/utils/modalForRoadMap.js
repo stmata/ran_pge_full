@@ -38,11 +38,29 @@ export default function ScrollDialog({ textReference, textRoadMap }) {
    * @param {string} text - The text to be formatted.
    * @returns {string} The formatted Markdown text.
    */
-  const formatTextToMarkdown = (text) => {
+  const formatTextToMarkdown = (text , isRoadMap = false) => {
     const lines = text.split('\n');
     let markdown = '';
 
-    lines.forEach(line => {
+    /* 
+      Pour des besoins de performance, 
+      c'est mieux de faire une verification
+      en amont au lieu de verifier à chaque
+      tour de boucle
+    */ 
+
+    if(isRoadMap){
+      lines.forEach(line => {
+        // Vérifier si la ligne correspond à un titre de module ou de chapitre
+        if (line.startsWith('Module')) {
+            markdown += `##### ${line}\n`;
+        } // Si ce n'est ni un titre de module ni une référence de livre, alors c'est une vidéo
+        else {
+            markdown += `${line}\n`;
+        }
+      });
+    }else{
+      lines.forEach(line => {
         // Vérifier si la ligne correspond à un titre de module ou de chapitre
         if (line.startsWith('Module')) {
             markdown += `##### ${line}\n`;
@@ -51,7 +69,8 @@ export default function ScrollDialog({ textReference, textRoadMap }) {
         else {
             markdown += `- ${line}\n`;
         }
-    });
+      });
+    }
 
     return markdown;
 }
@@ -76,7 +95,8 @@ const mergeText = () => {
   } else {
       textforModal += `### Reflective Review: Charting the Path to Mastery with Our Custom Roadmap \n\n`;
   }
-    textforModal += textRoadMap
+    
+    textforModal += formatTextToMarkdown(textRoadMap,true)
 
     return textforModal
 }
